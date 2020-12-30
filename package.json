@@ -1,0 +1,36 @@
+{
+  "name": "xrp-payment-cli",
+  "version": "0.1.0",
+  "description": "Send XRP quickly via the commandline",
+  "bin": "dist/app.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "tsc && node dist/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bnuyts/xrp-payment-cli.git"
+  },
+  "keywords": [
+    "payment",
+    "xrp",
+    "terminal",
+    "cli"
+  ],
+  "author": "bnuyts",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bnuyts/xrp-payment-cli/issues"
+  },
+  "homepage": "https://github.com/bnuyts/xrp-payment-cli#readme",
+  "dependencies": {
+    "ripple-lib": "^1.9.0",
+    "yargs": "^16.2.0"
+  },
+  "devDependencies": {
+    "@types/yargs": "^15.0.12",
+    "eslint": "^7.16.0",
+    "typescript": "^4.1.3"
+  }
+}
