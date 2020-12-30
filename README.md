@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/bnuyts/xrp-payment-cli.svg?branch=main)](https://travis-ci.com/bnuyts/xrp-payment-cli)
+
 # XRP Payment CLI
 
 Send XRP quickly via the commandline
