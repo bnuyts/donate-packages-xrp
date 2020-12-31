@@ -1,18 +1,22 @@
 import { RippleAPI } from 'ripple-lib';
-import sinon from 'sinon';
-import chai from 'chai';
+import { stub } from 'sinon';
+import { assert } from 'chai';
 import { doPrepare } from '../prepare';
 
 describe('doPrepare', function () {
-  it('should prepare a transaction', async function () {
-    const api = new RippleAPI();
-    sinon.stub(api, 'prepareTransaction').returns(
+  let api: RippleAPI;
+
+  beforeEach(function () {
+    api = new RippleAPI();
+    stub(api, 'prepareTransaction').returns(
       Promise.resolve({
         txJSON: 'txJSON',
         instructions: { fee: '1', maxLedgerVersion: 1 },
       })
     );
+  });
 
+  it('should prepare a transaction', async function () {
     const preparedTransaction = await doPrepare(
       api,
       'sender',
@@ -20,7 +24,7 @@ describe('doPrepare', function () {
       '1'
     );
 
-    chai.assert(preparedTransaction.maxLedgerVersion === 1);
-    chai.assert(preparedTransaction.txJSON === 'txJSON');
+    assert(preparedTransaction.maxLedgerVersion === 1);
+    assert(preparedTransaction.txJSON === 'txJSON');
   });
 });

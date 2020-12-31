@@ -8,7 +8,7 @@ export default class Connection {
       server: node,
     });
   }
-  //
+
   public connect(): Promise<void> {
     return this.api.connect();
   }

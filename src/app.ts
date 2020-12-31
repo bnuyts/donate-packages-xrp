@@ -3,7 +3,7 @@ import yargs from 'yargs';
 import { paymentFlow } from './xrp/payment/flow';
 
 yargs.command(
-  'send [sender] [secret] [destination] [amount]',
+  'send [sender] [secret] [destination] [amount] [node]',
   'send XRP to the destination',
   (yargs: any) => {
     yargs.positional('sender', {
