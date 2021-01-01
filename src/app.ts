@@ -3,7 +3,7 @@ import yargs from 'yargs';
 import { paymentFlow } from './xrp/payment/flow';
 
 yargs.command(
-  'send [sender] [secret] [destination] [amount] [node]',
+  'send [sender] [secret] [destination] [amount] [node] [validate]',
   'send XRP to the destination',
   (yargs: any) => {
     yargs.positional('sender', {
@@ -22,6 +22,10 @@ yargs.command(
       describe: 'node to connect to',
       default: 'wss://xrpl.ws',
     });
+    yargs.positional('validate', {
+      describe: 'validate the transaction',
+      default: true,
+    });
   },
   (argv: any) => {
     paymentFlow(
@@ -29,7 +33,8 @@ yargs.command(
       argv.sender,
       argv.secret,
       argv.destination,
-      argv.amount
+      argv.amount,
+      argv.validate
     );
   }
 ).argv;

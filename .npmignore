@@ -2,4 +2,6 @@
 .env
 .yarn
 .yarnrc.yml
+.travis.yml
+rollup.config.js
 tsconfig.json

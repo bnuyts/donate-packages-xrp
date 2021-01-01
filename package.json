@@ -4,9 +4,9 @@
   "description": "Send XRP quickly via the commandline",
   "bin": "dist/app.js",
   "scripts": {
-    "build": "tsc",
+    "build": "rollup -c",
     "publish": "npm publish",
-    "start": "tsc && node dist/app.js",
+    "start": "rollup -c && node dist/app.js",
     "test": "mocha -r ts-node/register src/**/*.spec.ts"
   },
   "repository": {
@@ -30,9 +30,11 @@
   },
   "dependencies": {
     "ripple-lib": "^1.9.0",
+    "tslib": "^2.0.3",
     "yargs": "^16.2.0"
   },
   "devDependencies": {
+    "@rollup/plugin-typescript": "^8.1.0",
     "@types/chai": "^4.2.14",
     "@types/mocha": "^8.2.0",
     "@types/sinon": "^9.0.10",
@@ -40,6 +42,8 @@
     "chai": "^4.2.0",
     "eslint": "^7.16.0",
     "mocha": "^8.2.1",
+    "rollup": "^2.35.1",
+    "rollup-plugin-preserve-shebangs": "^0.2.0",
     "sinon": "^9.2.2",
     "ts-node": "^9.1.1",
     "typescript": "^4.1.3"
