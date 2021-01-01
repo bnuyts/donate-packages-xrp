@@ -7,6 +7,11 @@ Send XRP quickly via the commandline
 ## Installation
 
 ```
+// dev
+yarn add xrp-payment-cli -D
+npm i xrp-payment-cli -D
+
+// global
 npm i xrp-payment-cli -g
 ```
 

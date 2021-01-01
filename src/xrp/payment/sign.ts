@@ -12,9 +12,8 @@ export function doSign(
 ): SignResponse {
   const response = api.sign(transaction, secret);
   const txID = response.id;
-  console.log('Identifying hash:', txID);
   const txBlob = response.signedTransaction;
-  console.log('Signed blob:', txBlob);
+  console.log('Transaction signed');
   return {
     id: txID,
     blob: txBlob,
