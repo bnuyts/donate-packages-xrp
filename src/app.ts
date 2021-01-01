@@ -5,8 +5,8 @@ import { paymentFlow } from './xrp/payment/flow';
 
 yargs
   .command(
-    'donate [sender] [secret] [amount] [node] [validate]',
-    'donate to',
+    'donate <sender> <secret> <amount> [node] [validate]',
+    'donate XRP to packages',
     (yargs: any) => {
       yargs.positional('sender', {
         describe: 'account originating the payment',
@@ -56,7 +56,7 @@ yargs
     }
   )
   .command(
-    'send [sender] [secret] [destination] [amount] [node] [validate]',
+    'send <sender> <secret> <destination> <amount> [node] [validate]',
     'send XRP to the destination',
     (yargs: any) => {
       yargs.positional('sender', {
