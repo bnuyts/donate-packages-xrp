@@ -4,14 +4,20 @@
 
 Send XRP quickly via the commandline
 
+## Installation
+
+```
+npm i xrp-payment-cli -g
+```
+
 ## Usage
 
 ```
-yarn start send --sender <senderAddress> --secret <secret> --destination <destinationAddress> --amount <amountInXRP>
+xrp-payment-cli send --sender <senderAddress> --secret <secret> --destination <destinationAddress> --amount <amountInXRP>
 ```
 
 The cli can also be used with different nodes. By default wss://xrpl.ws is used, however, a testnest node can also be passed.
 
 ```
-yarn start send --sender <senderAddress> --secret <secret> --destination <destinationAddress> --amount <amountInXRP> --node 'wss://s.altnet.rippletest.net:51233'
+xrp-payment-cli send --sender <senderAddress> --secret <secret> --destination <destinationAddress> --amount <amountInXRP> --node 'wss://s.altnet.rippletest.net:51233'
 ```
