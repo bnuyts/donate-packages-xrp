@@ -7,7 +7,7 @@
     "build": "rollup -c",
     "publish": "npm publish",
     "start": "rollup -c && node dist/app.js",
-    "test": "mocha -r ts-node/register src/**/*.spec.ts"
+    "test": "TS_NODE_PROJECT='./tsconfig.spec.json' mocha -r ts-node/register src/**/*.spec.ts"
   },
   "repository": {
     "type": "git",
