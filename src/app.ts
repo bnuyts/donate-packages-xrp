@@ -5,26 +5,27 @@ import { paymentFlow } from './xrp/payment/flow';
 
 yargs
   .command(
-    'donate <sender> <secret> <amount> [node] [validate]',
+    'donate',
     'donate XRP to packages',
     (yargs: any) => {
-      yargs.positional('sender', {
+      yargs.option('sender', {
         describe: 'account originating the payment',
       });
-      yargs.positional('secret', {
+      yargs.option('secret', {
         describe: 'secret for the origninating account to sign the transaction',
       });
-      yargs.positional('amount', {
+      yargs.option('amount', {
         describe: 'amount to send in XRP, not drops',
       });
-      yargs.positional('node', {
+      yargs.option('node', {
         describe: 'node to connect to',
         default: 'wss://xrpl.ws',
       });
-      yargs.positional('validate', {
+      yargs.option('validate', {
         describe: 'validate the transaction',
         default: true,
       });
+      yargs.demandOption(['sender', 'secret', 'amount']);
     },
     (argv: any) => {
       const paymentFlows: Promise<void>[] = [];
@@ -56,29 +57,30 @@ yargs
     }
   )
   .command(
-    'send <sender> <secret> <destination> <amount> [node] [validate]',
+    'send',
     'send XRP to the destination',
     (yargs: any) => {
-      yargs.positional('sender', {
+      yargs.option('sender', {
         describe: 'account originating the payment',
       });
-      yargs.positional('secret', {
+      yargs.option('secret', {
         describe: 'secret for the origninating account to sign the transaction',
       });
-      yargs.positional('destination', {
+      yargs.option('destination', {
         describe: 'destination account for the payment',
       });
-      yargs.positional('amount', {
+      yargs.option('amount', {
         describe: 'amount to send in XRP, not drops',
       });
-      yargs.positional('node', {
+      yargs.option('node', {
         describe: 'node to connect to',
         default: 'wss://xrpl.ws',
       });
-      yargs.positional('validate', {
+      yargs.option('validate', {
         describe: 'validate the transaction',
         default: true,
       });
+      yargs.demandOption(['sender', 'secret', 'destination', 'amount']);
     },
     (argv: any) => {
       paymentFlow(
