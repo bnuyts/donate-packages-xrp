@@ -5,3 +5,4 @@
 .travis.yml
 rollup.config.js
 tsconfig.json
+tsconfig.spec.json
