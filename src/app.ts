@@ -27,21 +27,30 @@ yargs
       });
     },
     (argv: any) => {
-      donateFlow().then((donationAddresses) => {
-        if (Array.isArray(donationAddresses) && donationAddresses.length > 0) {
-          const fractionAmount = argv.amount / donationAddresses.length;
-          donationAddresses.forEach((address) => {
-            paymentFlow(
-              argv.node,
-              argv.sender,
-              argv.secret,
-              address,
-              fractionAmount.toString(),
-              argv.validate
-            );
-          });
-        }
-      });
+      const paymentFlows: Promise<void>[] = [];
+      donateFlow()
+        .then((donationAddresses) => {
+          if (
+            Array.isArray(donationAddresses) &&
+            donationAddresses.length > 0
+          ) {
+            const fractionAmount = argv.amount / donationAddresses.length;
+            donationAddresses.forEach((address) => {
+              paymentFlows.push(
+                paymentFlow(
+                  argv.node,
+                  argv.sender,
+                  argv.secret,
+                  address,
+                  fractionAmount.toString(),
+                  argv.validate
+                )
+              );
+            });
+          }
+          return Promise.all(paymentFlows);
+        })
+        .then(() => process.exit());
     }
   )
   .command(
@@ -77,6 +86,6 @@ yargs
         argv.destination,
         argv.amount,
         argv.validate
-      );
+      ).then(() => process.exit());
     }
   ).argv;
