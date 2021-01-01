@@ -12,6 +12,18 @@ npm i xrp-payment-cli -g
 
 ## Usage
 
+### Donating XRP
+
+The XRP payment cli supports the donation of XRP to opt-in packages. If a package.json inside node_modules contains a donation property with an XRP entry, that entry will be used as destination wallet.
+
+The amount given as donation will be divided by the number of projects opting-in for XRP donations.
+
+```
+xrp-payment-cli donate --sender <senderAddress> --secret <secret> --amount <amountInXRP>
+```
+
+### Sending XRP
+
 ```
 xrp-payment-cli send --sender <senderAddress> --secret <secret> --destination <destinationAddress> --amount <amountInXRP>
 ```
