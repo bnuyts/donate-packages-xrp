@@ -34,7 +34,9 @@ yargs
             Array.isArray(donationAddresses) &&
             donationAddresses.length > 0
           ) {
-            const fractionAmount = argv.amount / donationAddresses.length;
+            const fractionAmount = (
+              argv.amount / donationAddresses.length
+            ).toFixed(6);
             donationAddresses.forEach((address) => {
               paymentFlows.push(
                 paymentFlow(
